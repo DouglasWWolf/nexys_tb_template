@@ -179,7 +179,6 @@ axi4_lite_slave#(ADDR_MASK) axil_slave
     // AXI AW channel
     .AXI_AWADDR     (S_AXI_AWADDR),
     .AXI_AWVALID    (S_AXI_AWVALID),   
-    .AXI_AWPROT     (S_AXI_AWPROT),
     .AXI_AWREADY    (S_AXI_AWREADY),
     
     // AXI W channel
@@ -196,7 +195,6 @@ axi4_lite_slave#(ADDR_MASK) axil_slave
     // AXI AR channel
     .AXI_ARADDR     (S_AXI_ARADDR), 
     .AXI_ARVALID    (S_AXI_ARVALID),
-    .AXI_ARPROT     (S_AXI_ARPROT),
     .AXI_ARREADY    (S_AXI_ARREADY),
 
     // AXI R channel

@@ -1,7 +1,7 @@
 {
   "design": {
     "design_info": {
-      "boundary_crc": "0x8EDB82098329BA4",
+      "boundary_crc": "0x8EDB820AD1B87A8",
       "design_src": "SBD",
       "device": "xc7a100tcsg324-1",
       "name": "bd_f519",
@@ -85,7 +85,7 @@
             "value_src": "const_prop"
           },
           "HAS_PROT": {
-            "value": "1",
+            "value": "0",
             "value_src": "const_prop"
           },
           "HAS_QOS": {

@@ -17,8 +17,8 @@
         "system_reset": ""
       },
       "axi_uart_bridge": {
-        "axi_uart_bridge": "",
-        "axi_uartlite": ""
+        "axi_uartlite": "",
+        "axi_uart_bridge": ""
       },
       "example_slave": ""
     },
@@ -266,6 +266,17 @@
           }
         },
         "components": {
+          "axi_uartlite": {
+            "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
+            "xci_name": "top_level_axi_uartlite_0_0",
+            "xci_path": "ip/top_level_axi_uartlite_0_0/top_level_axi_uartlite_0_0.xci",
+            "inst_hier_path": "axi_uart_bridge/axi_uartlite",
+            "parameters": {
+              "C_BAUDRATE": {
+                "value": "115200"
+              }
+            }
+          },
           "axi_uart_bridge": {
             "vlnv": "xilinx.com:module_ref:axi_uart_bridge:1.0",
             "xci_name": "top_level_axi_uart_bridge_0_0",
@@ -335,7 +346,7 @@
                     "value_src": "constant"
                   },
                   "HAS_PROT": {
-                    "value": "1",
+                    "value": "0",
                     "value_src": "constant"
                   },
                   "HAS_CACHE": {
@@ -403,12 +414,6 @@
                     "left": "63",
                     "right": "0"
                   },
-                  "AWPROT": {
-                    "physical_name": "M_AXI_AWPROT",
-                    "direction": "O",
-                    "left": "2",
-                    "right": "0"
-                  },
                   "AWVALID": {
                     "physical_name": "M_AXI_AWVALID",
                     "direction": "O"
@@ -455,12 +460,6 @@
                     "physical_name": "M_AXI_ARADDR",
                     "direction": "O",
                     "left": "63",
-                    "right": "0"
-                  },
-                  "ARPROT": {
-                    "physical_name": "M_AXI_ARPROT",
-                    "direction": "O",
-                    "left": "2",
                     "right": "0"
                   },
                   "ARVALID": {
@@ -551,7 +550,7 @@
                     "value_src": "constant"
                   },
                   "HAS_PROT": {
-                    "value": "1",
+                    "value": "0",
                     "value_src": "constant"
                   },
                   "HAS_CACHE": {
@@ -616,12 +615,6 @@
                     "left": "31",
                     "right": "0"
                   },
-                  "AWPROT": {
-                    "physical_name": "M_UART_AWPROT",
-                    "direction": "O",
-                    "left": "2",
-                    "right": "0"
-                  },
                   "AWVALID": {
                     "physical_name": "M_UART_AWVALID",
                     "direction": "O"
@@ -668,12 +661,6 @@
                     "physical_name": "M_UART_ARADDR",
                     "direction": "O",
                     "left": "31",
-                    "right": "0"
-                  },
-                  "ARPROT": {
-                    "physical_name": "M_UART_ARPROT",
-                    "direction": "O",
-                    "left": "2",
                     "right": "0"
                   },
                   "ARVALID": {
@@ -770,17 +757,6 @@
                 }
               }
             }
-          },
-          "axi_uartlite": {
-            "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
-            "xci_name": "top_level_axi_uartlite_0_0",
-            "xci_path": "ip/top_level_axi_uartlite_0_0/top_level_axi_uartlite_0_0.xci",
-            "inst_hier_path": "axi_uart_bridge/axi_uartlite",
-            "parameters": {
-              "C_BAUDRATE": {
-                "value": "115200"
-              }
-            }
           }
         },
         "interface_nets": {
@@ -807,15 +783,15 @@
           "aclk_1": {
             "ports": [
               "aclk",
-              "axi_uart_bridge/aclk",
-              "axi_uartlite/s_axi_aclk"
+              "axi_uartlite/s_axi_aclk",
+              "axi_uart_bridge/aclk"
             ]
           },
           "aresetn_1": {
             "ports": [
               "aresetn",
-              "axi_uart_bridge/aresetn",
-              "axi_uartlite/s_axi_aresetn"
+              "axi_uartlite/s_axi_aresetn",
+              "axi_uart_bridge/aresetn"
             ]
           },
           "axi_uartlite_interrupt": {
