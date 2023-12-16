@@ -1,4 +1,4 @@
-export project=axi_uart_a7 
+export project=nexys_a7
 export folder=.
 
 rm -rf ${project}.hw/webtalk/*
