@@ -11,16 +11,16 @@
       "validated": "true"
     },
     "design_tree": {
-      "system_interconnect": "",
       "source_100mhz": {
         "system_clock": "",
         "system_reset": ""
       },
       "axi_uart_bridge": {
-        "axi_uartlite": "",
-        "axi_uart_bridge": ""
+        "axi_uart_bridge": "",
+        "axi_uartlite": ""
       },
-      "example_slave": ""
+      "example_slave": "",
+      "system_interconnect": ""
     },
     "interface_ports": {
       "UART": {
@@ -75,60 +75,6 @@
       }
     },
     "components": {
-      "system_interconnect": {
-        "vlnv": "xilinx.com:ip:smartconnect:1.0",
-        "xci_name": "top_level_smartconnect_0_0",
-        "xci_path": "ip/top_level_smartconnect_0_0/top_level_smartconnect_0_0.xci",
-        "inst_hier_path": "system_interconnect",
-        "parameters": {
-          "NUM_SI": {
-            "value": "1"
-          }
-        },
-        "interface_ports": {
-          "S00_AXI": {
-            "mode": "Slave",
-            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
-            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-            "parameters": {
-              "NUM_READ_OUTSTANDING": {
-                "value": "1"
-              },
-              "NUM_WRITE_OUTSTANDING": {
-                "value": "1"
-              }
-            },
-            "bridges": [
-              "M00_AXI"
-            ]
-          },
-          "M00_AXI": {
-            "mode": "Master",
-            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
-            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
-            "parameters": {
-              "MAX_BURST_LENGTH": {
-                "value": "1"
-              },
-              "NUM_READ_OUTSTANDING": {
-                "value": "1"
-              },
-              "NUM_WRITE_OUTSTANDING": {
-                "value": "1"
-              },
-              "RUSER_BITS_PER_BYTE": {
-                "value": "0"
-              },
-              "SUPPORTS_NARROW_BURST": {
-                "value": "0"
-              },
-              "WUSER_BITS_PER_BYTE": {
-                "value": "0"
-              }
-            }
-          }
-        }
-      },
       "source_100mhz": {
         "ports": {
           "CLK100MHZ": {
@@ -266,17 +212,6 @@
           }
         },
         "components": {
-          "axi_uartlite": {
-            "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
-            "xci_name": "top_level_axi_uartlite_0_0",
-            "xci_path": "ip/top_level_axi_uartlite_0_0/top_level_axi_uartlite_0_0.xci",
-            "inst_hier_path": "axi_uart_bridge/axi_uartlite",
-            "parameters": {
-              "C_BAUDRATE": {
-                "value": "115200"
-              }
-            }
-          },
           "axi_uart_bridge": {
             "vlnv": "xilinx.com:module_ref:axi_uart_bridge:1.0",
             "xci_name": "top_level_axi_uart_bridge_0_0",
@@ -757,6 +692,17 @@
                 }
               }
             }
+          },
+          "axi_uartlite": {
+            "vlnv": "xilinx.com:ip:axi_uartlite:2.0",
+            "xci_name": "top_level_axi_uartlite_0_0",
+            "xci_path": "ip/top_level_axi_uartlite_0_0/top_level_axi_uartlite_0_0.xci",
+            "inst_hier_path": "axi_uart_bridge/axi_uartlite",
+            "parameters": {
+              "C_BAUDRATE": {
+                "value": "115200"
+              }
+            }
           }
         },
         "interface_nets": {
@@ -783,15 +729,15 @@
           "aclk_1": {
             "ports": [
               "aclk",
-              "axi_uartlite/s_axi_aclk",
-              "axi_uart_bridge/aclk"
+              "axi_uart_bridge/aclk",
+              "axi_uartlite/s_axi_aclk"
             ]
           },
           "aresetn_1": {
             "ports": [
               "aresetn",
-              "axi_uartlite/s_axi_aresetn",
-              "axi_uart_bridge/aresetn"
+              "axi_uart_bridge/aresetn",
+              "axi_uartlite/s_axi_aresetn"
             ]
           },
           "axi_uartlite_interrupt": {
@@ -1067,6 +1013,60 @@
             }
           }
         }
+      },
+      "system_interconnect": {
+        "vlnv": "xilinx.com:ip:smartconnect:1.0",
+        "xci_name": "top_level_smartconnect_0_0",
+        "xci_path": "ip/top_level_smartconnect_0_0/top_level_smartconnect_0_0.xci",
+        "inst_hier_path": "system_interconnect",
+        "parameters": {
+          "NUM_SI": {
+            "value": "1"
+          }
+        },
+        "interface_ports": {
+          "S00_AXI": {
+            "mode": "Slave",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "parameters": {
+              "NUM_READ_OUTSTANDING": {
+                "value": "1"
+              },
+              "NUM_WRITE_OUTSTANDING": {
+                "value": "1"
+              }
+            },
+            "bridges": [
+              "M00_AXI"
+            ]
+          },
+          "M00_AXI": {
+            "mode": "Master",
+            "vlnv_bus_definition": "xilinx.com:interface:aximm:1.0",
+            "vlnv": "xilinx.com:interface:aximm_rtl:1.0",
+            "parameters": {
+              "MAX_BURST_LENGTH": {
+                "value": "1"
+              },
+              "NUM_READ_OUTSTANDING": {
+                "value": "1"
+              },
+              "NUM_WRITE_OUTSTANDING": {
+                "value": "1"
+              },
+              "RUSER_BITS_PER_BYTE": {
+                "value": "0"
+              },
+              "SUPPORTS_NARROW_BURST": {
+                "value": "0"
+              },
+              "WUSER_BITS_PER_BYTE": {
+                "value": "0"
+              }
+            }
+          }
+        }
       }
     },
     "interface_nets": {
@@ -1118,9 +1118,9 @@
       "system_clock_clk_100mhz": {
         "ports": [
           "source_100mhz/clk_100mhz",
-          "system_interconnect/aclk",
           "axi_uart_bridge/aclk",
-          "example_slave/clk"
+          "example_slave/clk",
+          "system_interconnect/aclk"
         ]
       }
     },
